@@ -1,6 +1,10 @@
 # Stack Bucket Server
 We are creating stack bucket server application
 
+## Server Creating Process
+ - An express server creation complete
+ 
+
 
 ## Install Package
 - [x] express
@@ -13,3 +17,6 @@ We are creating stack bucket server application
 
 ## Create Gitignore file
 [toptal](https://www.toptal.com/developers/gitignore)
+
+> os code-editor language
+
