@@ -13,3 +13,5 @@ We are creating stack bucket server application
 
 ## Create Gitignore file
 [toptal](https://www.toptal.com/developers/gitignore)
+
+> os code-editor language
