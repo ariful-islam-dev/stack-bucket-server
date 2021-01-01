@@ -3,7 +3,7 @@ We are creating stack bucket server application
 
 ## Server Creating Process
  - An express server creation complete
- 
+
 
 
 ## Install Package
@@ -12,6 +12,7 @@ We are creating stack bucket server application
 - [x] mongoose
 - [x] nodemon
 - [x] morgan
+- [x] dotenv
 
 
 
