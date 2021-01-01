@@ -4,7 +4,21 @@ const cors = require("cors");
 const morgan = require("morgan");
 const path = require("path");
 
+const mongoose = require("mongoose");
+
 const app = express();
+mongoose
+  .connect("mongodb://localhost:27017/stack-bucket", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Data Connected");
+  })
+  .catch((e) => {
+    console.log(e.message);
+  });
+
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../", "public")));
 app.use(express.urlencoded({ extended: false }));
@@ -25,9 +39,7 @@ app.use((req, res, next) => {
 });
 
 app.use((error, req, res, next) => {
-
- 
-  if ((error.status === 404)) {
+  if (error.status === 404) {
     return res.status(404).json({
       msg: error.message,
       status: 404,
@@ -42,6 +54,5 @@ app.use((error, req, res, next) => {
 app.listen(8080, () => {
   console.log("Server Listening on port ", process.env.PORT);
 });
-
 
 //video 03 min: 13.01
