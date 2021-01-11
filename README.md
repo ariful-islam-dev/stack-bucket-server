@@ -20,6 +20,7 @@ We are creating stack bucket server application
 - [x] morgan
 - [x] dotenv
 - [x] rotating-file-stream
+- [X] winston  For Logger
 
 
 

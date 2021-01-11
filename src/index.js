@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const { useMorgan } = require('./middlewares/index')
 const path = require("path");
+const { logger } = require('./utils/index')
 
 const mongoose = require("mongoose");
 
@@ -14,10 +15,10 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Database Connected");
+    logger.info('Database Connected')
   })
   .catch((e) => {
-    console.log(e.message);
+    logger.error(e.message)
   });
 
 useMorgan(app);
@@ -55,7 +56,8 @@ app.use((error, req, res, next) => {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log("Server Listening on port ", process.env.PORT);
+  // console.log("Server Listening on port ", process.env.PORT);
+  logger.info(`Server listening on port ${process.env.PORT}`)
 });
 
 //video 03 min: 13.01
