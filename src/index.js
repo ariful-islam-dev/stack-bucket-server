@@ -1,29 +1,32 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const morgan = require("morgan");
+const { useMorgan } = require('./middlewares/index')
 const path = require("path");
 
 const mongoose = require("mongoose");
 
+console.log(process.env.NODE_ENV);
 const app = express();
 mongoose
-  .connect("mongodb://localhost:27017/stack-bucket", {
+  .connect(process.env.DATA_BASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Data Connected");
+    console.log("Database Connected");
   })
   .catch((e) => {
     console.log(e.message);
   });
 
+useMorgan(app);
+
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../", "public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(morgan("dev"));
+
 
 app.get("/", (req, res) => {
   // throw new Error("Custom Error");
@@ -51,7 +54,7 @@ app.use((error, req, res, next) => {
   });
 });
 
-app.listen(8080, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server Listening on port ", process.env.PORT);
 });
 
