@@ -5,6 +5,11 @@ We are creating stack bucket server application
  - An express server creation complete
  - An Implementation of mongodb local database connected
 
+## Modles For Shoppig Bucket
+    1. Bucket
+    2. Shoppig Item
+    3. Suggestion
+
 
 
 ## Install Package
